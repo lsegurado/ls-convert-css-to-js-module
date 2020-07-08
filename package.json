@@ -1,0 +1,25 @@
+{
+  "name": "@lsegurado/ls-convert-css-to-js",
+  "license": "MIT",
+  "version": "0.0.2",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/lsegurado"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lsegurado/ls-convert-css-to-js.git"
+  },
+  "description": "Tool for convert css into js files",
+  "main": "index.html",
+  "scripts": {
+    "build": "tsc",
+    "publish-patch-version": "npm version patch && npm run publish-npm",
+    "publish-npm": "npm run build && npm publish --access restricted"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "@types/node": "^14.0.14"
+  }
+}
