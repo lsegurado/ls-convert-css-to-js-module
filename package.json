@@ -11,6 +11,10 @@
   },
   "description": "Tool for convert css into js files",
   "main": "index.html",
+  "files": [
+    "dist/"
+  ],
+  "baseUrl": "./src",
   "scripts": {
     "build": "tsc",
     "publish-patch-version": "npm version patch && npm run publish-npm",
