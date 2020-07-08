@@ -7,12 +7,10 @@
         "experimentalDecorators": true,
         "lib": [
             "dom",
-            "es2017"
+            "es2015"
         ],
         "outDir": "bin",
-        "moduleResolution": "node",
-        "module": "esnext",
-        "target": "es2017",
+        "target": "es6",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "baseUrl": "./src",

@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import path from 'path';
+const fs: typeof import('fs') = require('fs');
+const path: typeof import('path') = require('path');
 
 const args: { srcDir: string, outDir: string } = getArgs();
 const srcDir = args.srcDir || 'src';
