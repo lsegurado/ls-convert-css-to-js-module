@@ -13,6 +13,7 @@
   "bin": {
     "convertCssIntoJs": "./bin/index.js"
   },
+  "type": "module",
   "description": "Tool for convert css into js files",
   "files": [
     "dist/"
