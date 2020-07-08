@@ -7,25 +7,24 @@
         "experimentalDecorators": true,
         "lib": [
             "dom",
-            "es2015"
+            "es2017"
         ],
-        "outDir": "dist",
+        "outDir": "bin",
         "moduleResolution": "node",
         "module": "esnext",
         "target": "es2017",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         "baseUrl": "./src",
         "paths": {
             "@/*": [
                 "./*"
             ],
         },
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "jsx": "react",
-        "reactNamespace": "h"
     },
     "include": [
-        "src"
+        "src",
+        "types/jsx.d.ts"
     ],
     "exclude": [
         "node_modules"

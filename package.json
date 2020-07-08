@@ -9,8 +9,11 @@
     "type": "git",
     "url": "https://github.com/lsegurado/ls-convert-css-to-js.git"
   },
+  "main": "bin/index.js",
+  "bin": {
+    "convertCssIntoJs": "./bin/index.js"
+  },
   "description": "Tool for convert css into js files",
-  "main": "index.html",
   "files": [
     "dist/"
   ],
