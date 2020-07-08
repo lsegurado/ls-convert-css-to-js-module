@@ -9,21 +9,23 @@
     "type": "git",
     "url": "https://github.com/lsegurado/ls-convert-css-to-js.git"
   },
-  "main": "bin/index.js",
+  "main": "bin/index.mjs",
   "bin": {
-    "convertCssIntoJs": "./bin/index.js"
+    "convertCssIntoJs": "./bin/index.mjs"
   },
+  "type": "module",
   "description": "Tool for convert css into js files",
   "files": [
     "dist/"
   ],
   "baseUrl": "./src",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cpy dist/index.js bin --rename=index.mjs",
     "publish-patch-version": "npm version patch && npm run publish-npm",
     "publish-npm": "npm run build && npm publish --access restricted"
   },
   "devDependencies": {
+    "cpy-cli": "^3.1.1",
     "typescript": "^3.9.6"
   },
   "dependencies": {
