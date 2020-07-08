@@ -9,7 +9,7 @@
             "dom",
             "es2015"
         ],
-        "outDir": "dist",
+        "outDir": "bin",
         "target": "es6",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
