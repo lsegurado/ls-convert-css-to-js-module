@@ -1,5 +1,5 @@
 {
-  "name": "@lsegurado/ls-convert-css-to-js",
+  "name": "@lsegurado/ls-convert-css-to-js-module",
   "license": "MIT",
   "version": "0.0.12",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lsegurado/ls-convert-css-to-js.git"
+    "url": "https://github.com/lsegurado/ls-convert-css-to-js-module.git"
   },
   "main": "bin/index.js",
   "bin": {
@@ -23,7 +23,7 @@
     "start": "npm run build && node ./bin/index.js --srcDir=test --outDir=testResult",
     "build": "tsc",
     "publish-patch-version": "npm version patch && npm run publish-npm",
-    "publish-npm": "npm run build && npm publish --access restricted"
+    "publish-npm": "npm run build && npm publish"
   },
   "devDependencies": {
     "typescript": "^3.9.6"
