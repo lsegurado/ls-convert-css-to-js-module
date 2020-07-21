@@ -28,6 +28,10 @@ function getFilesByExtension(base: string, ext: string, files?: string[], result
 const fileList = getFilesByExtension(srcDir, 'css');
 fileList.forEach(file => {
     const style = fs.readFileSync(file, "utf8");
+    fs.writeFileSync(`${file.replace(srcDir, outDir)}.js`, convertCssStringIntoJsModule(style));
+})
+
+export function convertCssStringIntoJsModule(style: string){
     const regexImports = new RegExp(/@import '[^']*';|@import "[^"]*";/, 'g');
     const imports: Array<string> = style.match(regexImports);
     const importsFormatted = imports ? imports.map((value, index) => value.replace('@import', `import style${index} from `)) : [];
@@ -42,8 +46,8 @@ fileList.forEach(file => {
     } else {
         resultString = resultString.concat(`export default '${minifyString(styleWithoutImports)}';`);
     }
-    fs.writeFileSync(`${file.replace(srcDir, outDir)}.js`, resultString);
-})
+    return resultString;
+}
 
 function minifyString(string) {
     return string.replace(/\s+/g, ' ').trim();
