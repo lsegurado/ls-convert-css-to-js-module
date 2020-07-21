@@ -16,7 +16,7 @@
   "type": "module",
   "description": "Tool for convert css into js files",
   "files": [
-    "dist/"
+    "bin/"
   ],
   "baseUrl": "./src",
   "scripts": {
