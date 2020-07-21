@@ -1,0 +1,11 @@
+:host {
+	display: block;
+	background-color: blue;
+	width: fit-content;
+	height: fit-content;
+	min-width: 40px;
+	min-height: 40px;
+}
+
+@import 'style2.css';
+@import 'style2 copy.css';

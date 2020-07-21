@@ -20,6 +20,7 @@
   ],
   "baseUrl": "./src",
   "scripts": {
+    "start": "npm run build && node ./bin/index.js --srcDir=test --outDir=testResult",
     "build": "tsc",
     "publish-patch-version": "npm version patch && npm run publish-npm",
     "publish-npm": "npm run build && npm publish --access restricted"
