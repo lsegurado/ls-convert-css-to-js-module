@@ -1,7 +1,7 @@
 {
   "name": "@lsegurado/ls-convert-css-to-js",
   "license": "MIT",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/lsegurado"
   },
