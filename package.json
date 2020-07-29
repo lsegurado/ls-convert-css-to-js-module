@@ -2,9 +2,6 @@
   "name": "@lsegurado/ls-convert-css-to-js-module",
   "license": "MIT",
   "version": "0.0.18",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/lsegurado"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/lsegurado/ls-convert-css-to-js-module.git"
