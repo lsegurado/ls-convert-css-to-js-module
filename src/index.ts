@@ -5,6 +5,7 @@ const convertCssStringIntoJsModule = require('./convertCssStringIntoJsModule');
 const args: { srcDir: string, outDir: string } = getArgs();
 const srcDir = args.srcDir || 'src';
 const outDir = args.outDir || 'dist';
+fs.mkdirSync(outDir, { recursive: true });
 
 function getFilesByExtension(base: string, ext: string, files?: string[], result?: string[]) {
     files = files || fs.readdirSync(base)
@@ -29,7 +30,11 @@ function getFilesByExtension(base: string, ext: string, files?: string[], result
 const fileList = getFilesByExtension(srcDir, 'css');
 fileList.forEach(file => {
     const style = fs.readFileSync(file, "utf8");
-    fs.writeFileSync(`${file.replace(srcDir, outDir)}.js`, convertCssStringIntoJsModule(style));
+    const outFilePath = file.replace(srcDir, outDir);
+    const outFilePathSplitted = outFilePath.split('\\');
+    outFilePathSplitted.pop();
+    fs.mkdirSync(outFilePathSplitted.join('\\'), { recursive: true });
+    fs.writeFileSync(`${outFilePath}.js`, convertCssStringIntoJsModule(style));
 })
 
 function getArgs(): any {
