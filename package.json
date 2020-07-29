@@ -3,7 +3,7 @@
   "license": "MIT",
   "version": "0.0.17",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/lsegurado"
+    "registry": "https://registry.npmjs.org/lsegurado"
   },
   "repository": {
     "type": "git",
