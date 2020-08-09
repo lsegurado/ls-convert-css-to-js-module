@@ -16,7 +16,7 @@
   ],
   "baseUrl": "./src",
   "scripts": {
-    "start": "npm run build && node ./bin/index.js --srcDir=test --outDir=testResult",
+    "start": "npm run build && node ./bin/index.js --srcDir=test --outDir=testResult --w",
     "build": "tsc",
     "publish-patch-version": "npm version patch && npm run publish-npm",
     "publish-npm": "npm run build && npm publish --access public"
@@ -26,6 +26,8 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "esm": "^3.2.25"
+    "@types/yargs": "^15.0.5",
+    "esm": "^3.2.25",
+    "yargs": "^15.4.1"
   }
 }
