@@ -19,6 +19,11 @@ export function cli() {
         default: false,
         alias: 'w'
     })
+    .option('adoptedStyleSheets', {
+        type: 'boolean',
+        default: false,
+        alias: 'w'
+    })
     .help()
     .alias('help', 'h')
     .argv;
@@ -26,6 +31,7 @@ export function cli() {
     const srcDir = args.srcDir;
     const outDir = args.outDir;
     const watch = args.watch;
+    const adoptedStyleSheets = args.adoptedStyleSheets;
     fs.mkdirSync(outDir, { recursive: true });
 
     function getFilesByExtension(base: string, ext: string, files?: string[], result?: string[]) {
@@ -67,6 +73,6 @@ export function cli() {
         const outFilePathSplitted = outFilePath.split('\\');
         outFilePathSplitted.pop();
         fs.mkdirSync(outFilePathSplitted.join('\\'), { recursive: true });
-        fs.writeFileSync(`${outFilePath}.js`, convertCssStringIntoJsModule(style));
+        fs.writeFileSync(`${outFilePath}.js`, convertCssStringIntoJsModule(style, adoptedStyleSheets));
     }
 }
