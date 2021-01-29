@@ -21,8 +21,7 @@ export function cli() {
     })
     .option('adoptedStyleSheets', {
         type: 'boolean',
-        default: false,
-        alias: 'w'
+        default: false
     })
     .help()
     .alias('help', 'h')

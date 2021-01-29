@@ -7,12 +7,17 @@ module.exports = function (style: string, useAdoptedStyleSheets: boolean) {
     let resultString = '';
     importsFormatted.forEach(importFormatted => resultString = resultString.concat(importFormatted));
     resultString = resultString.concat(`let style;`);
-    resultString = resultString.concat(`if(${useAdoptedStyleSheets} && (window.ShadowRoot && (window.ShadyCSS === undefined || window.ShadyCSS.nativeShadow) && 'adoptedStyleSheets' in Document.prototype && 'replace' in CSSStyleSheet.prototype)){`);
-    resultString = resultString.concat(`style = new CSSStyleSheet();`);
-    resultString = resultString.concat(`style.replaceSync('${minifyString(styleWithoutImports)}');`);
-    resultString = resultString.concat(`}else{`);
-    resultString = resultString.concat(`style = '${minifyString(styleWithoutImports)}';`);
-    resultString = resultString.concat(`}`);
+    resultString = resultString.concat(`const stringStyle = '${normalize(styleWithoutImports)}';`);
+    if (useAdoptedStyleSheets) {
+        resultString = resultString.concat(`if(window.ShadowRoot && (window.ShadyCSS === undefined || window.ShadyCSS.nativeShadow) && 'adoptedStyleSheets' in Document.prototype && 'replace' in CSSStyleSheet.prototype){`);
+        resultString = resultString.concat(`style = new CSSStyleSheet();`);
+        resultString = resultString.concat(`style.replaceSync(stringStyle);`);
+        resultString = resultString.concat(`}else{`);
+    }
+    resultString = resultString.concat(`style = stringStyle;`);
+    if (useAdoptedStyleSheets) {
+        resultString = resultString.concat(`}`);
+    }
 
     if (importsFormatted.length > 0) {
         resultString = resultString.concat(`export default [style${importsFormatted.map((_, index) => `,...style${index}`).join('')}];`);
@@ -20,6 +25,10 @@ module.exports = function (style: string, useAdoptedStyleSheets: boolean) {
         resultString = resultString.concat(`export default [style];`);
     }
     return resultString;
+}
+
+function normalize(string) {
+    return minifyString(string).replace(/\'/g, "\"");
 }
 
 function minifyString(string) {
