@@ -1,4 +1,4 @@
-module.exports = function (style: string, useAdoptedStyleSheets: boolean) {
+export default function convertCssStringIntoJsModule(style: string, useAdoptedStyleSheets: boolean) {
     const regexImports = new RegExp(/@import '[^']*';|@import "[^"]*";/, 'g');
     const imports: Array<string> = style.match(regexImports);
     const importsFormatted = imports ? imports.map((value, index) => value.replace('@import', `import style${index} from `)) : [];
