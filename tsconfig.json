@@ -6,6 +6,7 @@
         "declaration": true,
         "allowJs": true,
         "experimentalDecorators": true,
+        "module": "commonjs",
         "lib": [
             "dom",
             "es2015"

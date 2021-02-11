@@ -27,7 +27,6 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "esm": "^3.2.25",
     "yargs": "^16.2.0"
   }
 }
